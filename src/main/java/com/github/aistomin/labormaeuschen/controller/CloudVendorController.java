@@ -1,6 +1,7 @@
 package com.github.aistomin.labormaeuschen.controller;
 
 import com.github.aistomin.labormaeuschen.model.CloudVendor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -50,5 +51,17 @@ public class CloudVendorController {
     public String updateCloudVendor(final @RequestBody CloudVendor vendor) {
         this.vendor = vendor;
         return "Cloud vendor updated.";
+    }
+
+    /**
+     * Delete by id.
+     *
+     * @param id Vendor's ID.
+     * @return Result message.
+     */
+    @DeleteMapping("{id}")
+    public String deleteVendorDetails(final String id) {
+        this.vendor = null;
+        return "Cloud vendor is deleted.";
     }
 }
